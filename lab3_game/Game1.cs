@@ -10,8 +10,6 @@ namespace lab3_game
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         Texture2D myTexture;
-        Vector2 spritePosition = Vector2.Zero;
-        int frame = 3;
 
         Texture2D cloudTexture;
         Vector2[] scaleCloud;
@@ -24,19 +22,16 @@ namespace lab3_game
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            IsMouseVisible = true;
         }
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            myTexture = Content.Load<Texture2D>("NatureSprite");
             cloudTexture = Content.Load<Texture2D>("Cloud_sprite");
 
             cloudPos = new Vector2[4];
@@ -50,7 +45,6 @@ namespace lab3_game
                 scaleCloud[i].Y = scaleCloud[i].X;
                 speed[i] = r.Next(3, 7);
             }
-            // TODO: use this.Content to load your game content here
         }
 
         protected override void Update(GameTime gameTime)
@@ -58,7 +52,6 @@ namespace lab3_game
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
             for (int i = 0; i < 4; i++)
             {
                 cloudPos[i].X = cloudPos[i].X + speed[i];
@@ -78,26 +71,6 @@ namespace lab3_game
         {
             GraphicsDevice.Clear(new Color(85, 133, 50));
             spriteBatch.Begin();
-            //BigTree
-            spriteBatch.Draw(myTexture, new Vector2(0, 0), new Rectangle(64 * 4, 64 * 2, 64 * 4, 64 * 4), Color.White);
-            //Curly Bushes
-            spriteBatch.Draw(myTexture, new Vector2(64 * 5, 64), new Rectangle(64, 0, 64, 64), Color.White);
-            spriteBatch.Draw(myTexture, new Vector2(64 * 5, 64 * 2), new Rectangle(64, 0, 64, 64), Color.White);
-            spriteBatch.Draw(myTexture, new Vector2(64 * 5, 64 * 3), new Rectangle(64, 0, 64, 64), Color.White);
-            spriteBatch.Draw(myTexture, new Vector2(64 * 5, 64 * 4), new Rectangle(64, 0, 64, 64), Color.White);
-            spriteBatch.Draw(myTexture, new Vector2(64 * 4, 64 * 4), new Rectangle(64, 0, 64, 64), Color.White);
-            //Medium Tree
-            spriteBatch.Draw(myTexture, new Vector2(64 * 2, 64 * 5), new Rectangle(0, 64 * 3, 64 * 2, 64 * 2), Color.White);
-            //Stump
-            spriteBatch.Draw(myTexture, new Vector2(64 * 6, 64), new Rectangle(0, 0, 64, 64), Color.White);
-            spriteBatch.Draw(myTexture, new Vector2(64 * 9.5f, 64 * 4.3f), new Rectangle(0, 0, 64, 64), Color.White);
-            //Small Tree
-            spriteBatch.Draw(myTexture, new Vector2(64 * 6.5f, 64 * 4.5f), new Rectangle(64 * 2, 0, 64, 64), Color.White);
-            spriteBatch.Draw(myTexture, new Vector2(64 * 8, 64 * 2.5f), new Rectangle(64 * 2, 0, 64, 64), Color.White);
-            //Banana Tree
-            spriteBatch.Draw(myTexture, new Vector2(64 * 9.7f, 64 * 1.5f), new Rectangle(64 * 2, 64 * 4, 64 * 2, 64 * 2), Color.White);
-            //signpost
-            spriteBatch.Draw(myTexture, new Vector2(64 * 8, 64 * 5.5f), new Rectangle(0, 64, 64, 64), Color.White);
             //cloud
             for (int i = 0; i < 4; i++)
             {
