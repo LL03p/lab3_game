@@ -67,6 +67,9 @@ namespace lab3_game
             spriteBatch.Draw(myTexture, new Vector2(64 * 8, 64 * 5.5f), new Rectangle(0, 64, 64, 64), Color.White);
             spriteBatch.End();
             base.Draw(gameTime);
+
+
+
         }
     }
 }
