@@ -14,7 +14,6 @@ namespace lab3_game
         int frame = 3;
 
 
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
