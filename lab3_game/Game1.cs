@@ -13,6 +13,8 @@ namespace lab3_game
         Vector2 spritePosition = Vector2.Zero;
         int frame = 3;
 
+
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
